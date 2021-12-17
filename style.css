@@ -1,0 +1,223 @@
+/* ======== Imports ======== */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400&display=swap");
+
+/* ======== Variables ======== */
+:root {
+	--color-1: #303041;
+	--color-2: #3d3a50;
+	--color-3: #0ea1f6;
+	--color-4: #f4fcf6;
+	--radius: 4px;
+	--font: "Jost", sans-serif;
+	--line-height: 125%;
+	--spacing: 16px;
+	--menu-height: 50px;
+	--image-size: 450px;
+	--justify: flex-start;
+	--text-align: justify;
+}
+
+/* ======== Configs ======== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+}
+
+body {
+	background-color: var(--color-2);
+	color: var(--color-4);
+	font-family: var(--font);
+	scroll-behavior: smooth;
+}
+
+/* ======== Container ======== */
+.container {
+	margin: 0 var(--spacing);
+}
+
+/* ======== Nav ======== */
+.nav {
+	height: var(--menu-height);
+	width: 100%;
+	display: flex;
+	position: sticky;
+	top: 0;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-3);
+}
+/* Nav Logo */
+.nav__logo {
+	padding-left: var(--spacing);
+}
+/* Nav Menu */
+.nav__menu {
+	height: 100%;
+	display: flex;
+	gap: 8px;
+}
+/* 	Nav Menu Item  */
+.menu__item,
+.nav__icon {
+	text-transform: capitalize;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding: 0 var(--spacing);
+	user-select: none;
+	cursor: pointer;
+}
+.menu__item:active,
+.nav__icon:active {
+	color: var(--color-1);
+}
+/* Nav Icon */
+.nav__icon {
+	display: none;
+}
+/* 	Nav Icon Image */
+.icon_img {
+	fill: var(--color-4);
+}
+
+/* ======= Section ====== */
+.section {
+	padding: var(--spacing) 0;
+}
+
+/* ======= Banner ====== */
+.banner {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: var(--spacing);
+}
+/* Banner Image */
+.banner__image {
+	max-width: var(--image-size);
+}
+/* Banner Title */
+.banner__title {
+	font-weight: bold;
+	padding-top: var(--spacing);
+	text-align: var(--text-align);
+}
+/* Banner Info */
+.banner__info {
+	line-height: var(--line-height);
+	padding: var(--spacing) 0;
+	text-align: var(--text-align);
+	word-wrap: break-word;
+}
+
+/* ======== Button ======== */
+.button {
+	background-color: var(--color-3);
+	color: var(--color-4);
+	padding: 8px;
+	user-select: none;
+	cursor: pointer;
+	border-radius: var(--radius);
+}
+.button:active {
+	background-color: var(--color-1);
+}
+
+/* ======== Cards ======== */
+.cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--spacing);
+}
+/* Card */
+.card {
+	background-color: var(--color-1);
+	width: 100%;
+	min-height: 200px;
+	border-radius: var(--radius);
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	text-align: var(--text-align);
+	justify-items: var(--justify);
+	align-items: var(--justify);
+}
+/* 	Card Title */
+.card__title {
+	margin-bottom: 4px;
+}
+/* 	Card Paragraph */
+.card__paragraph {
+	font-weight: 300;
+}
+.card__image {
+	width: var(--image-size);
+}
+
+/* ======== Footer ======== */
+.footer {
+	background-color: var(--color-3);
+	width: 100%;
+	padding: var(--spacing);
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		--image-size: 250px;
+		--justify: center;
+		--text-align: var(--justify);
+	}
+	.nav__menu {
+		height: calc(100vh - var(--menu-height));
+		width: 100%;
+		background-color: var(--color-3);
+		position: fixed;
+		top: var(--menu-height);
+		flex-direction: column;
+		align-content: flex-start;
+	}
+	.menu__item {
+		width: 100%;
+		height: var(--menu-height);
+	}
+	.nav__icon {
+		display: flex;
+	}
+	.nav_menu--open {
+		left: 100%;
+		transition: left 0.8s;
+	}
+	.banner {
+		grid-template-columns: 1fr;
+		justify-items: var(--justify);
+	}
+	/* Banner Body */
+	.banner__body {
+		text-align: var(--text-align);
+	}
+	.cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (hover: hover) {
+	.menu__item:hover,
+	.nav__icon:hover {
+		color: var(--color-3);
+		background-color: var(--color-4);
+	}
+
+	.nav__icon:hover > .icon_img {
+		fill: var(--color-3);
+	}
+
+	.button:hover {
+		background-color: var(--color-4);
+		color: var(--color-3);
+	}
+}
